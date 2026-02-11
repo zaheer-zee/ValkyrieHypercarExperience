@@ -51,7 +51,7 @@ export default function Navbar() {
             className="fixed top-0 left-0 right-0 z-50 px-8 py-6"
         >
             <div className="max-w-7xl mx-auto">
-                <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl px-8 py-4 shadow-2xl">
+                <div className="backdrop-blur-md bg-black/60 border border-white/20 rounded-2xl px-8 py-4 shadow-2xl">
                     <div className="flex items-center justify-between">
                         <motion.div
                             className="font-orbitron text-2xl font-bold tracking-wider cursor-pointer"
@@ -68,8 +68,8 @@ export default function Navbar() {
                                     key={item.id}
                                     onClick={() => scrollToSection(item.id)}
                                     className={`transition-colors ${activeSection === item.id
-                                            ? "text-bright-gold"
-                                            : "text-white/80 hover:text-bright-gold"
+                                        ? "text-bright-gold"
+                                        : "text-white hover:text-bright-gold"
                                         }`}
                                     whileHover={{ scale: 1.1 }}
                                 >
