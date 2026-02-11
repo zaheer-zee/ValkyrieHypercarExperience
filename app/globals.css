@@ -15,14 +15,77 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
-  background-color: var(--pagani-black);
+  background: var(--pagani-black);
   color: white;
   overflow-x: hidden;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* GPU Acceleration for smooth performance */
+canvas {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Enhanced glassmorphism */
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.backdrop-blur-sm {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--pagani-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pagani-gold);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bright-gold);
+}
+
+/* Smooth transitions for all interactive elements */
+button,
+a {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Prevent text selection on UI elements */
+nav,
+button {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Optimize rendering performance */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth;
   }
+}
+
+/* Loading optimization */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }

@@ -9,8 +9,13 @@ export default function Home() {
             <ValkyrieScrollCanvas />
             <ValkyrieExperience />
 
-            {/* Scroll container - 500vh for smooth scrolling */}
-            <div className="relative" style={{ height: "500vh" }} />
+            {/* Scroll container with section markers for navigation */}
+            <div className="relative" style={{ height: "500vh" }}>
+                <div id="overview" className="absolute" style={{ top: "0%" }} />
+                <div id="performance" className="absolute" style={{ top: "25%" }} />
+                <div id="design" className="absolute" style={{ top: "50%" }} />
+                <div id="engineering" className="absolute" style={{ top: "75%" }} />
+            </div>
         </main>
     );
 }
