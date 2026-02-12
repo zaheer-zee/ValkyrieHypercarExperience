@@ -9,8 +9,9 @@
 
 ## ✨ Features
 
-- **🎬 Scroll-Controlled Animation** - 181 high-resolution frames creating a cinematic 360° car reveal
-- **⚡ Buttery-Smooth Performance** - 60fps rendering with RAF optimization, frame caching, and GPU acceleration
+- **🎬 Scroll-Controlled Animation** - 725 ultra-high-resolution frames (3008x1664) creating a cinematic 360° car reveal
+- **⚡ Buttery-Smooth Performance** - 60fps rendering with progressive lazy loading, frame caching, and GPU acceleration
+- **🖼️ Crystal-Clear Quality** - 4x upscaled images using Lanczos algorithm for razor-sharp detail on all displays
 - **🎨 Premium Design** - Glassmorphic UI with luxury automotive branding matching official Aston Martin aesthetic
 - **📱 Fully Responsive** - Adapts seamlessly to any screen size with high-DPI display support
 - **🎯 Smart Navigation** - Smooth scroll-to-section with active section highlighting
@@ -52,12 +53,12 @@ Open [http://localhost:3000](http://localhost:3000) and start scrolling!
 │   └── globals.css         # Global styles, GPU acceleration, custom scrollbar
 ├── components/
 │   ├── Navbar.tsx          # Enhanced navigation with smooth scroll & active highlighting
-│   ├── ValkyrieScrollCanvas.tsx  # High-res canvas rendering with devicePixelRatio
+│   ├── ValkyrieScrollCanvas.tsx  # High-res canvas with progressive lazy loading
 │   └── ValkyrieExperience.tsx    # Four premium content sections with animations
 ├── data/
 │   └── carData.ts          # Authentic Valkyrie specifications and features
-├── public/images/finalWebImages/
-│   └── ezgif-frame-*.jpg   # 181 high-quality image sequence frames
+├── public/images/hq-valkyrie/
+│   └── frame_*.jpg         # 725 ultra-high-res frames (3008x1664)
 ├── netlify.toml            # Netlify deployment configuration
 └── next.config.js          # Next.js configuration for standalone deployment
 ```
@@ -83,13 +84,15 @@ Open [http://localhost:3000](http://localhost:3000) and start scrolling!
 
 ## 📊 Performance Optimizations
 
+- **Progressive Lazy Loading:** Loads every 10th frame first for instant preview, then preloads nearby frames
+- **Smart Preloading:** Continuously loads 15 frames ahead/behind current scroll position
 - **Canvas Rendering:** Hardware-accelerated with `requestAnimationFrame`
 - **Frame Caching:** Prevents redundant renders for smooth 60fps
 - **GPU Acceleration:** `will-change` and `translateZ(0)` hints
 - **High-DPI Support:** `devicePixelRatio` scaling for retina displays
-- **Image Quality:** High-quality smoothing (`imageSmoothingQuality: 'high'`)
+- **Image Quality:** Lanczos upscaling + high-quality smoothing (`imageSmoothingQuality: 'high'`)
 - **Debounced Resize:** Optimized window resize handling
-- **Bundle Size:** Optimized for fast initial load
+- **Memory Management:** Only keeps active frames in memory to prevent overload
 
 ## 🛠️ Development
 

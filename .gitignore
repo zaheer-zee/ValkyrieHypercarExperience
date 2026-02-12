@@ -34,3 +34,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# old low-quality images
+/public/images/highqualityImages/
+upscale_images.sh
+
